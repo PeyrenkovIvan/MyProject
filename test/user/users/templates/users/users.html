@@ -1,0 +1,97 @@
+{% extends 'users/base.html' %}
+{% load static %}
+
+{% block title %}
+Список пользователей
+{% endblock %}
+
+{% block header %}
+
+{% endblock %}
+
+{% block aside %}
+
+{% endblock %}
+
+{% block article %}
+<style>
+	button{height: 15px;}
+	li{margin-bottom: 30px; border-bottom: 1px solid #000;}
+</style>
+<div id="article">
+	<div id="nameusr">
+		<p>Name</p>
+
+		<div><p>
+			{% for user in users %}
+	            <li>{{ user.nickname }}</li>
+	            {% empty %}
+	            <li>Нет зарегистрированных пользователей</li>
+	        {% endfor %}
+		</p></div>
+
+	</div>
+	<div id="datausr">
+		<p>Data</p>
+
+		<div><p>
+			{% for user in users %}
+            <li>{{ user.date_joined }}</li>
+        {% empty %}
+            <li>Нет зарегистрированных пользователей</li>
+        {% endfor %}
+
+
+		</p></div>
+
+	</div>
+	<div id="grpusr">
+		<p>Group</p>
+
+		<div><p>
+		<ul>
+                {% for user in users %}
+                    <li>
+                        {% for group in user.groups.all %}
+                            {{ group.name }}
+                        {% empty %}
+                            Не входит в группы
+                        {% endfor %}
+                    </li>
+                {% empty %}
+                    <li>Нет зарегистрированных пользователей</li>
+                {% endfor %}
+            </ul>
+
+		</p></div>
+
+	</div>
+	<div id="actusr">
+		<p>Action</p>
+
+		<div><p>
+
+			<ul>
+                {% for user in users %}
+			        <li>
+			            <a href="{% url 'edit' user.id %}">Редактировать</a>
+			            <a href="{% url 'delete' user.id %}">Удалить</a>
+			        </li>
+			    {% empty %}
+			        <li>Нет зарегистрированных пользователей</li>
+			    {% endfor %}
+            </ul>
+		</p></div>
+
+	</div>
+</div>	
+
+
+
+
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}
+

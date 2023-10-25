@@ -1,0 +1,37 @@
+{% extends 'users/base.html' %}
+{% load static %}
+
+{% block title %}
+Удаление группы 
+{% endblock %}
+
+{% block header %}
+
+{% endblock %}
+
+{% block aside %}
+
+{% endblock %}
+
+{% block article %}
+
+{% if error_message %}
+<p>{{ error_message }}</p>
+
+{% else %}
+
+<h1>Удалить группу</h1>
+<p>Вы уверены, что хотите удалить группу "{{ group.name }}"?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Удалить</button>
+</form>
+
+{% endif %}
+
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}
+

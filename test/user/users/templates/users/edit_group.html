@@ -1,0 +1,32 @@
+{% extends 'users/base.html' %}
+{% load static %}
+
+{% block title %}
+Редактирование группы
+{% endblock %}
+
+{% block header %}
+
+{% endblock %}
+
+{% block aside %}
+
+{% endblock %}
+
+{% block article %}
+<h1>Редактировать группу</h1>
+<form method="post">
+    {% csrf_token %}
+    <p>Введите новое название</p>
+    {{ form.name}}<br>
+    <p>Введите новое описание</p>
+    {{ form.description }}<br>
+    <button type="submit">Сохранить изменения</button>
+</form>
+
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}
+

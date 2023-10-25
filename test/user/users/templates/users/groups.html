@@ -1,0 +1,91 @@
+{% extends 'users/base.html' %}
+{% load static %}
+
+{% block title %}
+Список групп
+{% endblock %}
+
+{% block header %}
+
+{% endblock %}
+
+{% block aside %}
+
+{% endblock %}
+
+{% block article %}
+<style>
+	button{height: 15px;}
+	li{margin-bottom: 30px; border-bottom: 1px solid #000;}
+</style>
+<div id="article">
+	<div id="idusr">
+		<p>ID</p>
+
+		<div><p>
+			<ul>
+                {% for group in groups %}
+                    <li>
+                        {{ group.id }}
+                    </li>
+                {% empty %}
+                    <li>Нет доступных групп</li>
+                {% endfor %}
+            </ul>
+		</p></div>
+
+	</div>
+	<div id="datausr">
+		<p>Name</p>
+
+		<div><p>
+			{% for group in groups %}
+	            <li>{{ group.name }}</li>
+	            {% empty %}
+	            <li>Нет зарегистрированных групп</li>
+	        {% endfor %}
+		</p></div>
+
+	</div>
+	<div id="grpusr">
+		<p>Description</p>
+
+		<div><p>
+			{% for group in groups %}
+	           
+	                <li>{{ group.description }}</li>
+	            
+	        {% empty %}
+	           
+	                <li>Нет описания</li>
+	            
+	        {% endfor %}
+		</p></div>
+
+	</div>
+	<div id="actuser">
+		<p>Action</p>
+
+		<div><p>
+			<ul>
+                {% for group in groups %}
+                    <li>
+			            <a href="{% url 'edit_group' group.id %}">Редактировать</a>
+			            <a href="{% url 'delete_group' group.id %}">Удалить</a>
+			        </li>
+                {% empty %}
+                    <li>Нет доступных групп</li>
+                {% endfor %}
+            </ul>
+		</p></div>
+
+	</div>
+</div>	
+
+
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}
+

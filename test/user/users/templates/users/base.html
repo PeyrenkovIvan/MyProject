@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{% block title %}{% endblock %}</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">	
+</head>
+<body>
+	<header>
+		<div id="header">
+			<div id="menu">
+					{% csrf_token %}
+
+					<a href="{% url 'users' %}"><input type="button" class="buttusr" value="Users"></a>
+					<a href="{% url 'groups' %}"><input type="button" class="buttgrp" value="Groups"></a>
+
+					<a href="{% url 'adduser' %}"><input type="button" class="buttaddusr" value="Add Users"></a>
+					<a href="{% url 'addgroup' %}"><input type="button" class="buttaddgrp" value="Add Groups"></a>
+			</div>	
+		</div>
+	{% block header %}{% endblock %}</header>
+	<aside>{% block aside %}{% endblock %}</aside>
+	<article>{% block article %}{% endblock %}</article>
+	<footer>{% block footer %}{% endblock %}</footer>
+</body>
+</html>

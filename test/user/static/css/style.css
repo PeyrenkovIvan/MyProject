@@ -1,0 +1,18 @@
+body{background: #fff; margin: 5px}
+
+
+header{}
+#header{margin-bottom: 10px}
+#menu{border: 0px solid #000; border-bottom:1px solid #000; }
+.buttusr{border: 1px solid #000; border-bottom:1px solid #fff;}
+.buttgrp{border: 1px solid #000; border-bottom:1px solid #fff;}
+.buttaddusr{border: 1px solid #000; border-bottom:1px solid #fff;}
+.buttaddgrp{border: 1px solid #000; border-bottom:1px solid #fff;}
+
+
+/*article{display: flex; flex-direction: row; justify-content: center;}*/
+#article{display: flex; flex-direction: row; justify-content: space-around; border-bottom: 1px solid #666; border-top: 1px solid #666;}
+#blokcs{}
+
+footer{}
+
